@@ -22,8 +22,7 @@
             3. gnupg: Docker 패키지의 GPG키를 통해 진위성을 확인하여, 신뢰할 수 있는 Docker 소프트웨어만 설치되도록 함
             4. lsb-release: 현재 시스템의 배포판 정보를 확인하여, Docker가 사용하는 레포지토리ㅗ아 패키지가 운영체제에 맞도록 설정
 
-3. `sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg-dearmor -o /etc/apt/keyrings/docker.gpg`
+3. `sudo mkdir -p /etc/apt/keyrings && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg`
 : Docker의 GPG키를 추가한다.
 4. `echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null` : Docker 패키지 레포지토리를 추가
 5. `sudo apt-get update`: 위에서 추가했던 Docker관련 패키지를 다시 업데이트
