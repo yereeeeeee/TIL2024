@@ -25,8 +25,7 @@
 3. `sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg-dearmor -o /etc/apt/keyrings/docker.gpg`
 : Docker의 GPG키를 추가한다.
-4. `echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null` : Docker 패키지 레포지토리를 추가
+4. `echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null` : Docker 패키지 레포지토리를 추가
 5. `sudo apt-get update`: 위에서 추가했던 Docker관련 패키지를 다시 업데이트
 6. `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`: Docker와 관련 패키지들을 모두 설치
 
