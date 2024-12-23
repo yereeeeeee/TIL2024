@@ -62,6 +62,7 @@ print(*res[::-1])
 
 from bisect import bisect_left
 
+
 N = int(input())
 arr = [*map(int,input().split())]
 
