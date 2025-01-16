@@ -1,0 +1,21 @@
+WITH CAR_SEDAN AS (
+    SELECT
+        CAR_ID,
+        CAR_TYPE
+    FROM
+        CAR_RENTAL_COMPANY_CAR
+    WHERE
+        CAR_TYPE = '세단'
+)
+SELECT
+    DISTINCT car.CAR_ID
+FROM
+    CAR_SEDAN car
+JOIN
+    CAR_RENTAL_COMPANY_RENTAL_HISTORY history
+    ON car.CAR_ID = history.CAR_ID
+WHERE
+    MONTH(START_DATE) = 10
+ORDER BY
+    CAR_ID DESC
+;
